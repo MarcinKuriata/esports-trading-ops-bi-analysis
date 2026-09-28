@@ -7,17 +7,20 @@ This repository contains an end-to-end Business Intelligence and Data Analytics 
 
 ## 📊 Key Performance Indicators (KPIs) Tracked
 1. **Turnover:** Total volume of stakes placed across tournaments and match formats.
-2. **Gross Gaming Revenue (GGR):** Net win/loss for the operator (Turnover - Payout).
+2. **Gross Gaming Revenue (GGR):** Net win/loss for the operator (`Turnover - Payout`).
 3. **Margin (Hold %):** Built-in operator profitability indicator.
 4. **Risk Exposure:** Tracking cumulative financial liability and match format volatility.
 
 ---
 
 ## 📂 Repository Structure
-- data/                  # Raw match, team, and tournament datasets
-- sql/                   
-  - trading_analysis.sql   # Advanced BigQuery SQL scripts (KPIs, Window Functions, Market Balance)
-- README.md
+```text
+├── data/
+├── sql/
+│   ├── 01_kpi_aggregation.sql
+│   └── 02_advanced_analytics.sql
+└── README.md
+```
 
 ---
 
@@ -26,6 +29,7 @@ This repository contains an end-to-end Business Intelligence and Data Analytics 
 ### 1. Financial KPI Aggregation by Tournament
 
 **SQL Code:**
+```sql
 SELECT 
     tournament,
     COUNT(DISTINCT match_id) AS total_matches_played,
@@ -36,6 +40,7 @@ SELECT
 FROM base_match_finances
 GROUP BY tournament
 ORDER BY SUM(turnover) DESC;
+```
 
 **Sample Output (BigQuery Results):**
 | tournament | total_matches_played | cumulative_turnover_formatted | cumulative_payout_formatted | total_ggr_formatted | avg_margin_pct |
@@ -49,6 +54,7 @@ ORDER BY SUM(turnover) DESC;
 ### 2. Window Functions: Tournament Ranking & Cumulative Exposure
 
 **SQL Code:**
+```sql
 SELECT 
     tournament,
     match_count,
@@ -57,6 +63,7 @@ SELECT
     FORMAT('%.2f', SUM(tournament_turnover) OVER (ORDER BY tournament_turnover DESC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)) AS running_total_turnover_formatted
 FROM tournament_performance
 ORDER BY turnover_rank ASC;
+```
 
 **Sample Output (BigQuery Results):**
 | tournament | match_count | tournament_turnover_formatted | turnover_rank | running_total_turnover_formatted |
