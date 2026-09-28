@@ -42,12 +42,12 @@ GROUP BY tournament
 ORDER BY SUM(turnover) DESC;
 ```
 
-**Sample Output (BigQuery Results):**
-| tournament | total_matches_played | cumulative_turnover_formatted | cumulative_payout_formatted | total_ggr_formatted | avg_margin_pct |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **ESL Pro League Season 19** | 79 | 17511822.00 | 16198435.35 | 1313386.65 | 7.5 |
-| **PGL CS2 Major Copenhagen 2024** | 202 | 16775852.00 | 15517663.10 | 1258188.90 | 7.5 |
-| **StarLadder Budapest Major 2025** | 107 | 16660314.00 | 15413398.95 | 1249735.05 | 7.5 |
+**Business Results:**
+| Tournament | Matches | Turnover ($) | Payout ($) | GGR ($) | Margin % |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **ESL Pro League Season 19** | 79 | 17,511,822.00 | 16,198,435.35 | 1,313,386.65 | 7.50% |
+| **PGL CS2 Major Copenhagen 2024** | 202 | 16,775,852.00 | 15,517,663.10 | 1,258,188.90 | 7.50% |
+| **StarLadder Budapest Major 2025** | 107 | 16,660,314.00 | 15,413,398.95 | 1,249,735.05 | 7.50% |
 
 ---
 
@@ -65,15 +65,22 @@ FROM tournament_performance
 ORDER BY turnover_rank ASC;
 ```
 
-**Sample Output (BigQuery Results):**
-| tournament | match_count | tournament_turnover_formatted | turnover_rank | running_total_turnover_formatted |
-| :--- | :--- | :--- | :--- | :--- |
-| **ESL Pro League Season 19** | 79 | 17511822.00 | 1 | 17511822.00 |
-| **PGL CS2 Major Copenhagen 2024** | 202 | 16775852.00 | 2 | 34287674.00 |
-| **StarLadder Budapest Major 2025** | 107 | 16660314.00 | 3 | 50950808.00 |
+**Business Results:**
+| Tournament | Matches | Turnover ($) | Rank | Running Total Turnover ($) |
+| :--- | :---: | :---: | :---: | :---: |
+| **ESL Pro League Season 19** | 79 | 17,511,822.00 | 1 | 17,511,822.00 |
+| **PGL CS2 Major Copenhagen 2024** | 202 | 16,775,852.00 | 2 | 34,287,674.00 |
+| **StarLadder Budapest Major 2025** | 107 | 16,660,314.00 | 3 | 50,950,808.00 |
 
 ---
 
 ## 🚀 Business Impact for Traders
 * **Volume Identification:** Pinpoints high-traffic tournaments allowing risk management teams to allocate capital and monitoring focus effectively.
 * **Market Volatility Tracking:** Analyzes match formats (BO1 vs BO3) to evaluate score differentials and predictable outcomes, assisting in live odds adjustment.
+
+---
+
+## 🔮 Roadmap / Next Steps (In Progress)
+- [ ] **Power BI Dashboard:** Interactive executive dashboard visualizing turnover trends, live margin monitoring, and tournament exposure cards.
+- [ ] **Python Integration:** Automated pipeline / feature engineering scripts for odds drift analysis and predictive market simulations.
+- [ ] **Stakeholder Recommendations:** Executive summary report with actionable trading limits and risk adjustment strategies.
