@@ -9,7 +9,7 @@ This repository contains an end-to-end Business Intelligence and Data Analytics 
 1. **Turnover:** Total volume of stakes placed across tournaments and match formats.
 2. **Gross Gaming Revenue (GGR):** Net win/loss for the operator (`Turnover - Payout`).
 3. **Margin (Hold %):** Built-in operator profitability indicator (`GGR / Turnover`).
-4. **Risk Exposure & Volatility:** Tracking cumulative liability and format-level variance (BO1 vs BO3).
+4. **Risk Exposure & Volatility:** Tracking cumulative liability, format-level variance (BO1 vs BO3), and high-volume team exposure.
 
 ---
 
@@ -49,7 +49,7 @@ ORDER BY SUM(turnover) DESC;
 | Tournament | Matches | Turnover ($) | Payout ($) | GGR ($) | Margin % |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **ESL Pro League Season 19** | 79 | 17,511,822.00 | 16,198,435.35 | 1,313,386.65 | 7.50% |
-| **PGL CS2 Major Copenhagen 2024** | 202 | 16,775,852.00 | 15,517,663.10 | 1,258,188.90 | 7.50% |
+| **PGL CS2 Major Copenhagen 2024** | 202 | 16,775,852.00 | 15,517,663.10 | 1258,188.90 | 7.50% |
 | **StarLadder Budapest Major 2025** | 107 | 16,660,314.00 | 15,413,398.95 | 1,249,735.05 | 7.50% |
 
 ---
@@ -77,20 +77,23 @@ ORDER BY turnover_rank ASC;
 
 ---
 
-## 📈 Power BI Operations Dashboard (WIP)
-- **Data Pipeline:** Extracted clean match-level granularity from BigQuery into a local model.
-- **DAX Model Built:** Dedicated `_Measures` table housing `Total Turnover`, `Total Payout`, `Total GGR`, `Hold Margin %`, and `Total Matches`.
-- **Core Visual Layout:**
-  - Executive KPI Ribbon (Turnover, Payout, GGR, Hold Margin %, Matches).
-  - Liquidity Concentration Bar Chart (`Total Turnover` & `GGR` by Tournament).
-  - Turnover Exposure Trajectory over Time (Area Chart).
-  - Match Format Distribution (`BO1` vs `BO3` vs `BO5` Donut Chart).
+## 📈 Power BI Operations Dashboard (Dark UI)
+- **Data Architecture:** Granular match-level fact table connected directly to a star-ready DAX measure model (`_Measures`).
+- **Trading Control Ribbon:** High-level executive KPI cards tracking `$1.14B` in Turnover, `$1.05B` in Payouts, `$85.5M` in GGR, a steady `7.50%` Hold Margin, and `20.7K` total matches monitored.
+- **Visual Analytics Layout:**
+  - **Liquidity Concentration:** Horizontal bar chart showcasing Top Tournaments ranked by stake volume and operator yield.
+  - **Turnover Trajectory:** Time-series area chart tracking market velocity and seasonality.
+  - **Format Risk Split:** Donut breakdown analyzing market exposure across match formats (BO1 vs BO3 vs BO5).
+  - **Team Liability Monitor:** Column chart tracking the Top 10 teams driving aggregate sportsbook handle.
+  - **Interactive Slicers:** Dynamic filtering by match format (`BO1`, `BO3`, `BO5`) and specific tournaments.
 
 ---
 
 ## 🔮 Roadmap / Next Steps
 - [x] BigQuery Data Extraction & Advanced SQL Modeling
 - [x] Initial Power BI Architecture & DAX Measures Setup
-- [ ] Finalize Custom Dark UI Styling & Visual Alignment
-- [ ] Python Scripting for Advanced Volatility Simulation
-- [ ] Executive Summary & Trading Risk Recommendations
+- [x] Core Dark UI Theme Styling & Grid Layout (KPIs, Charts, Slicers)
+- [ ] Visual Polish (Card Shadows, Typography Tuning, Axis Alignments)
+- [ ] Export & Add Dashboard Screenshot to README
+- [ ] Python Scripting for Advanced Odds Drift & Volatility Simulation
+- [ ] Executive Summary & Stakeholder Trading Recommendations
