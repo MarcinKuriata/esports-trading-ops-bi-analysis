@@ -21,14 +21,21 @@ The pipeline ingests raw tournament records into **Google BigQuery**, enforces a
 ## 📂 Repository Structure
 ```text
 ├── data/
-│   └── trading_matches_fact.csv            # Cleaned match-level fact table (9.9k series)
-├── sql/
-│   ├── 00_data_quality_audit.sql          # Automated pre-ingestion audit (PK, nulls, format validation)
-│   ├── 01_kpi_aggregation.sql              # Tournament liquidity, GGR & margin aggregation
-│   └── 02_advanced_analytics.sql           # Window functions (DENSE_RANK, running total handle)
-├── power_bi/
-│   └── esports_trading_ops_monitoring.pbix  # Production Power BI Dark UI report
-├── Trading_dashboard_img.jpg               # Executive dashboard snapshot
+│   ├── cs2_all_tiers_games.csv
+│   ├── players.csv
+│   ├── teams.csv
+│   ├── tournaments.csv
+│   └── trading_matches_fact.csv
+├── SQL/
+│   ├── 00_data_quality_audit.sql
+│   ├── 01_trading_kpi_and_risk.sql
+│   └── 02_advanced_analytics.sql
+├── visuals/
+│   ├── esports-trading-operations-risk-monitoring.pbix
+│   ├── Trading_dashboard.pdf
+│   └── Trading_dashboard_img.png
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
