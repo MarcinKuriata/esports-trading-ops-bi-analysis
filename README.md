@@ -123,12 +123,12 @@ LIMIT 10;
 ## 📈 Power BI Operations Dashboard (Dark UI Architecture)
 
 * **Design Philosophy:** Engineered as a high-density Trading Desk console. Uses a tailored Dark UI palette (`#0F172A` background, `#1E293B` cards, `#334155` borders, 8px corner radius) with high-contrast Cyan (`#38BDF8`) and Purple accents.
-* **Executive Metrics Ribbon:** Instant visibility on `$527.0M` Total Turnover, `$487.5M` Payout, `$39.5M` GGR, and a constant `7.5%` Hold Margin across `9.9K` fixtures[cite: 22, 23].
-* **Liquidity Concentration:** Horizontal ranking of Tier-1 tournaments isolating peak volume events[cite: 22, 23].
-* **Volume Trajectory:** Time-series area plot showcasing market seasonality and tournament clustering across months[cite: 22, 23].
-* **Match Format Distribution:** Donut segmentation illustrating volume split across `BO3` (~91%), `BO1` (~8%), and `BO5` (<1%)[cite: 22, 23].
-* **Team Exposure Monitor:** Top 10 teams (BetBoom Team, MOUZ, FURIA, 3DMAX, Vitality, Spirit) driving book handle and liability[cite: 22, 23].
-* **Operational Slicers:** Compact vertical tile controls for match format selection (`BO1`, `BO3`, `BO5`) and a searchable dropdown for tournament filtering[cite: 22, 23].
+* **Executive Metrics Ribbon:** Instant visibility on `$527.0M` Total Turnover, `$487.5M` Payout, `$39.5M` GGR, and a constant `7.5%` Hold Margin across `9.9K` fixtures.
+* **Liquidity Concentration:** Horizontal ranking of Tier-1 tournaments isolating peak volume events.
+* **Volume Trajectory:** Time-series area plot showcasing market seasonality and tournament clustering across months.
+* **Match Format Distribution:** Donut segmentation illustrating volume split across `BO3` (~91%), `BO1` (~8%), and `BO5` (<1%).
+* **Team Exposure Monitor:** Top 10 teams (BetBoom Team, MOUZ, FURIA, 3DMAX, Vitality, Spirit) driving book handle and liability.
+* **Operational Slicers:** Compact vertical tile controls for match format selection (`BO1`, `BO3`, `BO5`) and a searchable dropdown for tournament filtering.
 
 ---
 
@@ -138,7 +138,7 @@ LIMIT 10;
    * *Finding:* BO1 matches display significantly higher outcome variance and upset frequency due to pistol round swing momentum.
    * *Action:* Elevate the theoretical hold from 7.50% to **8.50% - 9.00%** on BO1 group-stage fixtures to safeguard desk margin against unexpected underdog runs.
 2. **Team Liability Limits & Real-Time Hedging:**
-   * *Finding:* Handle is highly concentrated among top-tier squads (e.g., MOUZ, Vitality, Spirit)[cite: 22, 23].
+   * *Finding:* Handle is highly concentrated among top-tier squads (e.g., MOUZ, Vitality, Spirit).
    * *Action:* Institute automated liability caps and dynamic odds throttling when single-team exposure exceeds pre-set thresholds on matchday.
 3. **Official Fast-Data Integration:**
    * *Action:* Pair algorithmic pricing models with sub-second official match server feeds (such as GRID data feeds) to eliminate court-siding exposure during live in-play trading.
