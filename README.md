@@ -1,6 +1,6 @@
 # Esports Trading Operations & Sportsbook BI Analysis
 
-![Power BI Operations Dashboard](Trading_dashboard_img.jpg)
+![Power BI Operations Dashboard](Trading_dashboard_img.png)
 
 ## 🎯 Project Overview
 This repository delivers an end-to-end Business Intelligence and Data Engineering project modeled for **Esports Trading Operations** (focusing on professional Counter-Strike fixtures). 
